@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Population & Highlights | 2024/2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="max-w-6xl mx-auto p-4 sm:p-6 md:p-12">
+
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#003F5C] mb-4">Principal's Report: Growth & Excellence</h1>
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                I am delighted to present our key statistics and outstanding achievements for the first half of the 2024/2025 session. Our community is growing, and our students continue to excel.
+            </p>
+        </header>
+
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
+                Our School at a Glance
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center transition-transform transform hover:scale-105">
+                    <h3 class="text-lg font-semibold text-gray-600 mb-2">Total Student Population</h3>
+                    <p class="text-7xl font-extrabold text-[#003F5C]">135</p>
+                    <p class="text-md text-gray-500 mt-2">A vibrant and dynamic community</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center transition-transform transform hover:scale-105">
+                    <h3 class="text-lg font-semibold text-gray-600 mb-2">Session-on-Session Growth</h3>
+                    <p class="text-7xl font-extrabold text-[#A05195]">+4</p>
+                    <p class="text-md text-gray-500 mt-2">Students, from 131 last session</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center transition-transform transform hover:scale-105">
+                    <h3 class="text-lg font-semibold text-gray-600 mb-2">Midterm Academic Average</h3>
+                    <p class="text-7xl font-extrabold text-[#F95D6A]">93.9%</p>
+                    <p class="text-md text-gray-500 mt-2">Outstanding student performance</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
+                Population Analysis
+            </h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl">
+                Our 135 students form a balanced and diverse population, with a healthy mix of day students and boarders, and a strong distribution across all year groups.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-xl shadow-xl p-6">
+                    <h3 class="text-2xl font-bold text-center text-[#003F5C] mb-4">Residence Breakdown</h3>
+                    <p class="text-center text-gray-600 mb-6">
+                        The student body consists of 77 day students and 58 boarding students, creating a flexible and inclusive campus environment.
+                    </p>
+                    <div class="chart-container relative w-full max-w-md mx-auto h-72 md:h-80 max-h-[400px]">
+                        <canvas id="residenceChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-6">
+                    <h3 class="text-2xl font-bold text-center text-[#003F5C] mb-4">Students per Year Group</h3>
+                    <p class="text-center text-gray-600 mb-6">
+                        Enrollment is strong across all levels, from our youngest in Year 7 to our senior leaders in SS3.
+                    </p>
+                    <div class="chart-container relative w-full max-w-2xl mx-auto h-72 md:h-80 max-h-[400px]">
+                        <canvas id="yearChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
+                External Engagements & Achievements
+            </h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl">
+                This term, our students have proudly represented the school at several prestigious events, demonstrating their skills and embodying our values.
+            </p>
+            <div class="space-y-6">
+                
+                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#FFA600] text-white flex items-center justify-center font-bold text-2xl shadow-md">1U</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-[#003F5C]">1-Ummah Peace & Unity Convention</h4>
+                        <p class="text-sm text-gray-500 mb-2">Nov 15th & 16th | Community & Ethics</p>
+                        <p class="text-gray-700">Students excelled in activities focused on peace and interfaith harmony, having an amazing and impactful time.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#F95D6A] text-white flex items-center justify-center font-bold text-2xl shadow-md">LITF</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-[#003F5C]">Lagos International Trade Fair</h4>
+                        <p class="text-sm text-gray-500 mb-2">Nov 15th | Business & Economics</p>
+                        <p class="text-gray-700">An all-inclusive outing providing invaluable real-world exposure to commerce, trade, and economic principles for all students.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#A05195] text-white flex items-center justify-center font-bold text-2xl shadow-md">MTN</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-[#003F5C]">MTN Cyber X: Next-Gen Digital Defenders</h4>
+                        <p class="text-sm text-gray-500 mb-2">Nov 17th | Technology & STEM</p>
+                        <p class="text-gray-700">Our students performed brilliantly, <span class="font-bold">winning</span> in activities at this prestigious cybersecurity event. A proud moment!</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#665191] text-white flex items-center justify-center font-bold text-2xl shadow-md">RIPF</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-[#003F5C]">Transformative Poetry Workshop</h4>
+                        <p class="text-sm text-gray-500 mb-2">This Term | Arts & Creativity</p>
+                        <p class="text-gray-700">With the Ruth Isabella Peters Foundation, our students engaged in a day of creativity, fostering excellence in poetry and art.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
+                Looking Ahead: Key Dates
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div class="bg-white rounded-xl shadow-xl p-8 text-center">
+                    <h3 class="text-2xl font-bold text-[#2F4B7C] mb-2">End of Term Examinations</h3>
+                    <p class="text-xl text-gray-700 font-light">December 3rd &mdash; December 12th</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-8 text-center">
+                    <h3 class="text-2xl font-bold text-[#2F4B7C] mb-2">Founder's Day Celebration</h3>
+                    <p class="text-xl text-gray-700 font-light">December 17th</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-16 pt-8 border-t border-gray-300">
+            <p>&copy; 2024 Principal's Office | 2024/2025 Academic Session</p>
+        </footer>
+
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+
+            const multiLineTooltipTitle = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const commonTooltipOptions = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: multiLineTooltipTitle
+                        },
+                        backgroundColor: '#FFF',
+                        titleColor: '#003F5C',
+                        titleFont: { weight: 'bold', size: 14 },
+                        bodyColor: '#333',
+                        bodyFont: { size: 12 },
+                        borderColor: '#DDD',
+                        borderWidth: 1,
+                        padding: 10,
+                        displayColors: true,
+                        boxPadding: 4
+                    }
+                }
+            };
+
+            const residenceCtx = document.getElementById('residenceChart').getContext('2d');
+            new Chart(residenceCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Day Students', 'Boarding Students'],
+                    datasets: [{
+                        data: [77, 58],
+                        backgroundColor: [
+                            '#2F4B7C',
+                            '#A05195'
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 3,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...commonTooltipOptions,
+                    plugins: {
+                        ...commonTooltipOptions.plugins,
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 14
+                                },
+                                padding: 20
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+
+            const yearCtx = document.getElementById('yearChart').getContext('2d');
+            new Chart(yearCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 7', 'Year 8', 'Year 9', 'SS1', 'SS2', 'SS3'],
+                    datasets: [{
+                        label: 'Total Students',
+                        data: [24, 27, 23, 19, 28, 15],
+                        backgroundColor: [
+                            '#003F5C',
+                            '#2F4B7C',
+                            '#665191',
+                            '#A05195',
+                            '#D45087',
+                            '#F95D6A'
+                        ],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...commonTooltipOptions,
+                    plugins: {
+                        ...commonTooltipOptions.plugins,
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                padding: 10,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                padding: 10,
+                                font: {
+                                    size: 12,
+                                    weight: '500'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
