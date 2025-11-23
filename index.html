@@ -3,280 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Population & Highlights | 2025/2026</title>
+    <title>NECO SSCE 2025 Performance Analysis - Taqwa High School</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <!-- Load Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Load Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
         }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        .donut-chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+        }
+        .grade-legend span {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 1rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+        .grade-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+        }
+        /* Custom colors for grades A1-C6 (Pass) and D7-F9 (Fail) */
+        .color-A1 { background-color: #10b981; }
+        .color-B2 { background-color: #34d399; }
+        .color-B3 { background-color: #6ee7b7; }
+        .color-C4 { background-color: #3b82f6; }
+        .color-C5 { background-color: #60a5fa; }
+        .color-C6 { background-color: #93c5fd; }
+        .color-Fail { background-color: #f87171; }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="p-4 sm:p-8">
 
-    <div class="max-w-6xl mx-auto p-4 sm:p-6 md:p-12">
-
-        <header class="text-center mb-12 md:mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#003F5C] mb-4">Principal's Report: Growth & Excellence</h1>
-            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-                I am delighted to present our key statistics and outstanding achievements for the first half of the 2025/2026 session. Our community is growing, and our students continue to excel.
-            </p>
+    <div class="max-w-7xl mx-auto">
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+                NECO SSCE 2025 Performance Analysis
+            </h1>
+            <p class="mt-2 text-xl text-indigo-600 font-medium">Taqwa High School - Comparative Subject Breakdown</p>
+            <div class="mt-4 p-3 bg-red-100 rounded-lg shadow-inner text-sm text-red-800">
+                <span class="font-bold">Important:</span> Data excludes subjects marked 'PENDING'. The average GP for the group is **5.12** (C5 equivalent).
+            </div>
         </header>
 
-        <section class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
-                Our School at a Glance
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transition-transform transform hover:scale-105">
-                    <h3 class="text-lg font-semibold text-gray-600 mb-2">Total Student Population</h3>
-                    <p class="text-7xl font-extrabold text-[#003F5C]">135</p>
-                    <p class="text-md text-gray-500 mt-2">A vibrant and dynamic community</p>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transition-transform transform hover:scale-105">
-                    <h3 class="text-lg font-semibold text-gray-600 mb-2">Session-on-Session Growth</h3>
-                    <p class="text-7xl font-extrabold text-[#A05195]">+4</p>
-                    <p class="text-md text-gray-500 mt-2">Students, from 131 last session</p>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transition-transform transform hover:scale-105">
-                    <h3 class="text-lg font-semibold text-gray-600 mb-2">Midterm Academic Average</h3>
-                    <p class="text-7xl font-extrabold text-[#F95D6A]">93.9%</p>
-                    <p class="text-md text-gray-500 mt-2">Outstanding student performance</p>
-                </div>
+        <!-- Grade Legend -->
+        <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-8 p-4 bg-white rounded-xl shadow-lg">
+            <h3 class="w-full text-center text-lg font-semibold text-gray-700 mb-3">Grade Point Legend (A1=1 to F9=9)</h3>
+            <div class="grade-legend">
+                <span><i class="grade-color color-A1"></i> A1 (1)</span>
+                <span><i class="grade-color color-B2"></i> B2 (2)</span>
+                <span><i class="grade-color color-B3"></i> B3 (3)</span>
+                <span><i class="grade-color color-C4"></i> C4 (4)</span>
+                <span><i class="grade-color color-C5"></i> C5 (5)</span>
+                <span><i class="grade-color color-C6"></i> C6 (6)</span>
+                <span><i class="grade-color color-Fail"></i> D7-F9 (7-9)</span>
+            </div>
+        </div>
+
+        <!-- Main Comparative Bar Chart -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Core Subject Grade Distribution (All 10 Students)</h2>
+            <p class="text-gray-600 mb-6">Comparison of performance across the most commonly taken subjects: English Language, General Mathematics, and Civic Education.</p>
+            <div class="chart-container">
+                <canvas id="gradeDistributionChart"></canvas>
             </div>
         </section>
 
-        <section class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
-                Population Analysis
-            </h2>
-            <p class="text-lg text-gray-700 mb-8 max-w-3xl">
-                Our 135 students form a balanced and diverse population, with a healthy mix of day students and boarders, and a strong distribution across all year groups.
-            </p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                
-                <div class="bg-white rounded-xl shadow-xl p-6">
-                    <h3 class="text-2xl font-bold text-center text-[#003F5C] mb-4">Residence Breakdown</h3>
-                    <p class="text-center text-gray-600 mb-6">
-                        The student body consists of 77 day students and 58 boarding students, creating a flexible and inclusive campus environment.
-                    </p>
-                    <div class="chart-container relative w-full max-w-md mx-auto h-72 md:h-80 max-h-[400px]">
-                        <canvas id="residenceChart"></canvas>
+        <!-- Spotlight Donut Charts Section (Pass vs Fail) -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Science Subject Spotlight (A1-C6 Credit/Pass vs D7-F9 Fail)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Biology Donut -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Biology (5 Students)</h3>
+                    <div class="donut-chart-container">
+                        <canvas id="biologyDonut"></canvas>
                     </div>
                 </div>
-                
-                <div class="bg-white rounded-xl shadow-xl p-6">
-                    <h3 class="text-2xl font-bold text-center text-[#003F5C] mb-4">Students per Year Group</h3>
-                    <p class="text-center text-gray-600 mb-6">
-                        Enrollment is strong across all levels, from our youngest in Year 7 to our senior leaders in SS3.
-                    </p>
-                    <div class="chart-container relative w-full max-w-2xl mx-auto h-72 md:h-80 max-h-[400px]">
-                        <canvas id="yearChart"></canvas>
+
+                <!-- Chemistry Donut -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Chemistry (4 Students)</h3>
+                    <div class="donut-chart-container">
+                        <canvas id="chemistryDonut"></canvas>
+                    </div>
+                </div>
+
+                <!-- Physics Donut -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Physics (4 Students)</h3>
+                    <div class="donut-chart-container">
+                        <canvas id="physicsDonut"></canvas>
+                    </div>
+                </div>
+
+                <!-- Literature in English Donut -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Lit in English (3 Students)</h3>
+                    <div class="donut-chart-container">
+                        <canvas id="literatureDonut"></canvas>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
-                External Engagements & Achievements
-            </h2>
-            <p class="text-lg text-gray-700 mb-8 max-w-3xl">
-                This term, our students have proudly represented the school at several prestigious events, demonstrating their skills and embodying our values.
-            </p>
-            <div class="space-y-6">
-                
-                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#FFA600] text-white flex items-center justify-center font-bold text-2xl shadow-md">1U</div>
-                    <div>
-                        <h4 class="text-xl font-bold text-[#003F5C]">1-Ummah Peace & Unity Convention</h4>
-                        <p class="text-sm text-gray-500 mb-2">Nov 15th & 16th | Community & Ethics</p>
-                        <p class="text-gray-700">Students excelled in activities focused on peace and interfaith harmony, having an amazing and impactful time.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#F95D6A] text-white flex items-center justify-center font-bold text-2xl shadow-md">LITF</div>
-                    <div>
-                        <h4 class="text-xl font-bold text-[#003F5C]">Lagos International Trade Fair</h4>
-                        <p class="text-sm text-gray-500 mb-2">Nov 15th | Business & Economics</p>
-                        <p class="text-gray-700">An all-inclusive outing providing invaluable real-world exposure to commerce, trade, and economic principles for all students.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#A05195] text-white flex items-center justify-center font-bold text-2xl shadow-md">MTN</div>
-                    <div>
-                        <h4 class="text-xl font-bold text-[#003F5C]">MTN Cyber X: Next-Gen Digital Defenders</h4>
-                        <p class="text-sm text-gray-500 mb-2">Nov 17th | Technology & STEM</p>
-                        <p class="text-gray-700">Our students performed brilliantly, <span class="font-bold">winning</span> in activities at this prestigious cybersecurity event. A proud moment!</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-xl p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#665191] text-white flex items-center justify-center font-bold text-2xl shadow-md">RIPF</div>
-                    <div>
-                        <h4 class="text-xl font-bold text-[#003F5C]">Transformative Poetry Workshop</h4>
-                        <p class="text-sm text-gray-500 mb-2">This Term | Arts & Creativity</p>
-                        <p class="text-gray-700">With the Ruth Isabella Peters Foundation, our students engaged in a day of creativity, fostering excellence in poetry and art.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section>
-            <h2 class="text-3xl font-bold text-[#665191] mb-8 pb-2 border-b-2 border-[#665191]">
-                Looking Ahead: Key Dates
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div class="bg-white rounded-xl shadow-xl p-8 text-center">
-                    <h3 class="text-2xl font-bold text-[#2F4B7C] mb-2">End of Term Examinations</h3>
-                    <p class="text-xl text-gray-700 font-light">December 3rd &mdash; December 12th</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-xl p-8 text-center">
-                    <h3 class="text-2xl font-bold text-[#2F4B7C] mb-2">Founder's Day Celebration</h3>
-                    <p class="text-xl text-gray-700 font-light">December 17th</p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="text-center text-gray-500 text-sm mt-16 pt-8 border-t border-gray-300">
-            <p>&copy; 2025 Principal's Office | 2025/2026 Academic Session</p>
-        </footer>
 
     </div>
 
     <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
+        // Data Structure for NECO Results
+        const gradeMap = {
+            'A1': 1, 'B2': 2, 'B3': 3, 'C4': 4, 'C5': 5, 'C6': 6,
+            'D7': 7, 'E8': 8, 'F9': 9, 'PENDING': 0, '*': 0
+        };
 
-            const multiLineTooltipTitle = (tooltipItems) => {
-                const item = tooltipItems[0];
-                let label = item.chart.data.labels[item.dataIndex];
-                if (Array.isArray(label)) {
-                    return label.join(' ');
-                } else {
-                    return label;
-                }
+        // Consolidated NECO Subject Data (Counts for 10 students where applicable)
+        const resultsData = [
+            // Student count = 10
+            { subject: 'ENGLISH LANGUAGE', students: 10, A1: 0, B2: 0, B3: 0, C4: 5, C5: 4, C6: 1, D7: 0, E8: 0, F9: 0 },
+            { subject: 'GENERAL MATHEMATICS', students: 10, A1: 0, B2: 2, B3: 2, C4: 2, C5: 1, C6: 1, D7: 2, E8: 0, F9: 0 },
+            { subject: 'CIVIC EDUCATION', students: 10, A1: 0, B2: 1, B3: 4, C4: 1, C5: 3, C6: 1, D7: 0, E8: 0, F9: 0 },
+            
+            // Student counts vary for other subjects
+            { subject: 'BIOLOGY', students: 5, A1: 0, B2: 0, B3: 1, C4: 0, C5: 1, C6: 3, D7: 0, E8: 0, F9: 0 },
+            { subject: 'CHEMISTRY', students: 4, A1: 0, B2: 0, B3: 0, C4: 0, C5: 1, C6: 0, D7: 2, E8: 0, F9: 1 },
+            { subject: 'PHYSICS', students: 4, A1: 0, B2: 0, B3: 0, C4: 0, C5: 2, C6: 0, D7: 1, E8: 0, F9: 1 },
+            { subject: 'LITERATURE IN ENGLISH', students: 3, A1: 0, B2: 2, B3: 1, C4: 0, C5: 0, C6: 0, D7: 0, E8: 0, F9: 0 },
+        ];
+
+
+        // Function to create the main bar chart (Grade Distribution)
+        function createGradeDistributionChart() {
+            const subjects = ['ENGLISH LANGUAGE', 'GENERAL MATHEMATICS', 'CIVIC EDUCATION'];
+            const dataForChart = resultsData.filter(d => subjects.includes(d.subject));
+
+            const labels = subjects;
+            const gradeKeys = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9'];
+            
+            const gradeColors = {
+                'A1': '#10b981', 'B2': '#34d399', 'B3': '#6ee7b7', 
+                'C4': '#3b82f6', 'C5': '#60a5fa', 'C6': '#93c5fd', 
+                'D7': '#f87171', 'E8': '#ef4444', 'F9': '#b91c1c'
             };
 
-            const commonTooltipOptions = {
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            title: multiLineTooltipTitle
+            const datasets = gradeKeys.map(key => {
+                return {
+                    label: key,
+                    data: dataForChart.map(subjectData => subjectData[key]),
+                    backgroundColor: gradeColors[key],
+                    stack: 'Stack 1',
+                };
+            });
+            
+            new Chart(document.getElementById('gradeDistributionChart'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: datasets,
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' },
+                        title: {
+                            display: false,
+                        }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: { display: false }
                         },
-                        backgroundColor: '#FFF',
-                        titleColor: '#003F5C',
-                        titleFont: { weight: 'bold', size: 14 },
-                        bodyColor: '#333',
-                        bodyFont: { size: 12 },
-                        borderColor: '#DDD',
-                        borderWidth: 1,
-                        padding: 10,
-                        displayColors: true,
-                        boxPadding: 4
+                        y: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Students',
+                            },
+                            ticks: {
+                                precision: 0,
+                                stepSize: 1
+                            },
+                            max: 10 // Since all students took these subjects
+                        }
                     }
                 }
-            };
+            });
+        }
 
-            const residenceCtx = document.getElementById('residenceChart').getContext('2d');
-            new Chart(residenceCtx, {
+        // Function to create donut charts (Pass vs Fail)
+        function createDonutChart(canvasId, data) {
+            const total = data.values.reduce((sum, current) => sum + current, 0);
+            const passPercentage = total > 0 ? ((data.values[0] / total) * 100).toFixed(1) : 0;
+            
+            // Inject the percentage into the canvas container for display
+            const container = document.getElementById(canvasId).closest('.text-center');
+            const percentageDisplay = document.createElement('div');
+            percentageDisplay.className = 'mt-[-150px] font-bold text-3xl text-indigo-700';
+            percentageDisplay.textContent = `${passPercentage}%`;
+            container.appendChild(percentageDisplay);
+            
+            new Chart(document.getElementById(canvasId), {
                 type: 'doughnut',
                 data: {
-                    labels: ['Day Students', 'Boarding Students'],
+                    labels: data.labels,
                     datasets: [{
-                        data: [77, 58],
+                        data: data.values,
                         backgroundColor: [
-                            '#2F4B7C',
-                            '#A05195'
+                            '#10b981', // Pass (Green)
+                            '#f87171'  // Fail (Red)
                         ],
-                        borderColor: '#FFFFFF',
-                        borderWidth: 3,
                         hoverOffset: 4
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    ...commonTooltipOptions,
+                    cutout: '75%', // Makes it a donut
                     plugins: {
-                        ...commonTooltipOptions.plugins,
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    size: 14
-                                },
-                                padding: 20
-                            }
-                        }
-                    },
-                    cutout: '60%'
-                }
-            });
-
-            const yearCtx = document.getElementById('yearChart').getContext('2d');
-            new Chart(yearCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Year 7', 'Year 8', 'Year 9', 'SS1', 'SS2', 'SS3'],
-                    datasets: [{
-                        label: 'Total Students',
-                        data: [24, 27, 23, 19, 28, 15],
-                        backgroundColor: [
-                            '#003F5C',
-                            '#2F4B7C',
-                            '#665191',
-                            '#A05195',
-                            '#D45087',
-                            '#F95D6A'
-                        ],
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    ...commonTooltipOptions,
-                    plugins: {
-                        ...commonTooltipOptions.plugins,
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                drawBorder: false,
-                            },
-                            ticks: {
-                                padding: 10,
-                                font: {
-                                    size: 12
-                                }
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false,
-                            },
-                            ticks: {
-                                padding: 10,
-                                font: {
-                                    size: 12,
-                                    weight: '500'
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + ' Students';
+                                    }
+                                    return label;
                                 }
                             }
                         }
                     }
                 }
             });
-        });
+        }
+
+        // Initialize all charts when the window loads
+        window.onload = function () {
+            createGradeDistributionChart();
+
+            // 1. Biology Donut
+            const bioData = resultsData.find(s => s.subject === 'BIOLOGY');
+            const bioPass = bioData.A1 + bioData.B2 + bioData.B3 + bioData.C4 + bioData.C5 + bioData.C6; // 5 Pass
+            const bioFail = bioData.students - bioPass; // 0 Fail
+            createDonutChart('biologyDonut', { labels: ['Credit (A1-C6)', 'Fail (D7-F9)'], values: [bioPass, bioFail] });
+
+            // 2. Chemistry Donut
+            const chemData = resultsData.find(s => s.subject === 'CHEMISTRY');
+            const chemPass = chemData.A1 + chemData.B2 + chemData.B3 + chemData.C4 + chemData.C5 + chemData.C6; // 1 Pass
+            const chemFail = chemData.students - chemPass; // 3 Fail
+            createDonutChart('chemistryDonut', { labels: ['Credit (A1-C6)', 'Fail (D7-F9)'], values: [chemPass, chemFail] });
+            
+            // 3. Physics Donut
+            const physicsData = resultsData.find(s => s.subject === 'PHYSICS');
+            const physicsPass = physicsData.A1 + physicsData.B2 + physicsData.B3 + physicsData.C4 + physicsData.C5 + physicsData.C6; // 2 Pass
+            const physicsFail = physicsData.students - physicsPass; // 2 Fail
+            createDonutChart('physicsDonut', { labels: ['Credit (A1-C6)', 'Fail (D7-F9)'], values: [physicsPass, physicsFail] });
+            
+            // 4. Literature in English Donut
+            const litData = resultsData.find(s => s.subject === 'LITERATURE IN ENGLISH');
+            const litPass = litData.A1 + litData.B2 + litData.B3 + litData.C4 + litData.C5 + litData.C6; // 3 Pass
+            const litFail = litData.students - litPass; // 0 Fail
+            createDonutChart('literatureDonut', { labels: ['Credit (A1-C6)', 'Fail (D7-F9)'], values: [litPass, litFail] });
+        };
     </script>
 </body>
 </html>
